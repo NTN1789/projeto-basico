@@ -1,0 +1,35 @@
+@import "../../styles/colors.scss";
+.container .title {
+    color: $White;
+    font-size: 2.5rem;
+    text-align: center;
+    margin: 3rem 0 2rem;
+
+
+}
+
+.title  .query-text{
+    color: $ColorYellow;
+
+}
+.movies-container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+.movies-container div {
+
+ width: 30vh;
+ height: 28vw;
+color: $White;
+margin-bottom: 2.5rem;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+background-color: #111;
+
+}
