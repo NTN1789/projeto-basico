@@ -1,6 +1,6 @@
 import {useEffect,useState} from "react"
 import { useSearchParams } from "react-router-dom"
-import MovieCard from "../Movie/MovieCard"
+import MovieCard from "../Movie/MovieCard";
 
 
 const searchUrl = import.meta.env.VITE_SEARCH ;
@@ -24,10 +24,10 @@ export default function Search() {
   
   
   useEffect (() => {
-    const searchquery = `${searchUrl}?${apiKey}&query=${query}`
+    const searchquery = `${searchUrl}?${apiKey}&query=${query}` ;
       getSearch(searchquery)
      
-   },[query])
+   },[query]);
   
   
   return (
@@ -37,14 +37,8 @@ export default function Search() {
    <div className="movies-container">
 
     {
-      (movies.length === 0) ? <p>not found</p> : movies.map((movie, id) => {
-        return (  
-            <div key={id}>
-              <MovieCard movie={movie} />
-        
-            </div>   
-        )       
-      })
+      movies.length > 0 &&
+        movies.map((movie) => <MovieCard  key={movie.id} movie={movie} />)
     }
     </div>
 

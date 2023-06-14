@@ -20,11 +20,11 @@ const getMovies = async (url) => {
 
 
 useEffect (() => {
-  const moviesUrl = `${movieUrl}movie/popular?${apikey}`
+  const moviesUrl = `${movieUrl}popular?${apikey}`
     getMovies(moviesUrl)
    
  },[])
-console.log(movies)
+
 
 
   return (
@@ -34,15 +34,12 @@ console.log(movies)
      <div className="movies-container">
 
       {
-        (movies.length === 0) ? <p>not found</p> : movies.map((movie, id) => {
-          return (  
-              <div key={id}>
-                <MovieCard key={movie.id} movie={movie} />
+  (movies.length === 0) ? <p>not found</p> :
+   movies.map((movie, id) =>  
+    <MovieCard key={movie.id} movie={movie} />
           
-              </div>   
-          )       
-        })
-      }
+     )
+    }
       </div>
 
     </div>
