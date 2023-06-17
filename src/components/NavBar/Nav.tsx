@@ -31,7 +31,7 @@ export default function Nav() {
        type="text"
         placeholder="Busque um filme" 
         onChange={(e)=>setSearch(e.target.value)}
-        value={search}
+      
         />
       <button type="submit">
         <BiSearchAlt2/>

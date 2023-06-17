@@ -2,15 +2,15 @@ import { useState,useEffect } from "react"
 import { useParams } from "react-router-dom"
 import MovieCard from "./MovieCard";
 
-type Props = {}
+
 const movieUrls = import.meta.env.VITE_API;
 const apikey = import.meta.env.VITE_API_KEY;
-export default function Movie({}: Props) {
+export default function Movie() {
     const {id} = useParams();
     const [movie,setMovie] = useState<any | null>(null);
   
 
-    const getMovie = async(url) => {
+    const getMovie = async(url:any) => {
         const res = await fetch(url)
         const data = await res.json()
         setMovie(data)

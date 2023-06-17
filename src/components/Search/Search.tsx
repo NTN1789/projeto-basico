@@ -13,7 +13,7 @@ export default function Search() {
   const [movies, setMovies] = useState ([])
 
 
-  const getSearch = async (url) => {
+  const getSearch = async (url:any) => {
   
 
     const res = await fetch(url)
@@ -38,7 +38,7 @@ export default function Search() {
 
     {
       movies.length > 0 &&
-        movies.map((movie) => <MovieCard  key={movie.id} movie={movie} />)
+        movies.map((movie,id) => <MovieCard  key={id} movie={movie} />)
     }
     </div>
 
