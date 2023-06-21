@@ -7,7 +7,7 @@ const apikey = import.meta.env.VITE_API_KEY
 import "../Movie/MovieCard.scss"
 
 export default function Home() {
-  const [movies, setMovies] = useState<string | null>([])
+  const [movies, setMovies] = useState([])
 
 
   const getMovies = async (url: any) => {
@@ -35,15 +35,15 @@ export default function Home() {
       <div className="movies-container">
 
 
-        { movies &&
-           movies.map((movie: any) => {
+        {movies &&
+          movies.map((movie: any) => {
             return (
               <>
                 <MovieCard key={movie.id} movie={movie} />
               </>
             )
           })
-       
+
         }
       </div>
 
