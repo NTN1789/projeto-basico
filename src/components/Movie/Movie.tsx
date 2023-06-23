@@ -31,7 +31,7 @@ export default function Movie() {
         const movieUrl = `${movieUrls}${id}?${apikey}`
         getMovie(movieUrl)
     }, [])
-
+console.log(movie)
     return (
         <div>
 
@@ -39,8 +39,11 @@ export default function Movie() {
                 <>
 
                     <MovieCard movie={movie} showLink={false} />
-                    <p>{movie.tagline}</p>
+                
+                
                     <p>{formatCurrency(movie.budget)}</p>
+                    <p>{movie.release_date.slice(0,4)}</p>
+                    <p>{movie.genres.map((genre: any) => genre.name).join(', ')}</p>
 
                     <p> {formatCurrency(movie.revenue)}</p>
 
