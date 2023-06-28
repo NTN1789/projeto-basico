@@ -1,14 +1,22 @@
 import { useState, useEffect } from "react"
-import { useParams } from "react-router-dom"
+import { useParams, } from "react-router-dom"
 import MovieCard from "./MovieCard";
 
 
+
+
 const movieUrls = import.meta.env.VITE_API;
+
 const apikey = import.meta.env.VITE_API_KEY;
+
+
 export default function Movie() {
     const { id } = useParams();
+    const videosapi = `https://api.themoviedb.org/3/movie/${id}?api_key=971f03eef96c481fd72b934bef826ce4&language=pt-br&append_to_response=videos`
+    
     const [movie, setMovie] = useState<any | null>(null);
-
+   
+    const [videosmovie, setVideosMovie] = useState<any | null>(videosapi);
 
     const getMovie = async (url: any) => {
         const res = await fetch(url)
@@ -25,13 +33,16 @@ export default function Movie() {
         return `${Math.trunc(num / 60)}h ${num % 60}min`;
     }
 
+  
 
 
     useEffect(() => {
         const movieUrl = `${movieUrls}${id}?${apikey}`
-        getMovie(movieUrl)
+   
+        getMovie    (movieUrl)
     }, [])
-console.log(movie)
+
+    
     return (
         <div>
 
@@ -52,8 +63,16 @@ console.log(movie)
 
 
                     <p>{movie.overview}</p>
+
+             
+
+                    
+                 
                 </>
             }
+
+         
+                 
         </div>
     )
 }

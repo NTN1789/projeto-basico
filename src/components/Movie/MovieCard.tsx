@@ -1,7 +1,5 @@
-import { Link } from "react-router-dom"
-import { FaStar } from 'react-icons/fa'
-
-
+import { Link } from "react-router-dom";
+import { FaStar } from "react-icons/fa";
 
 const imageUrl = import.meta.env.VITE_IMG;
 
@@ -15,5 +13,5 @@ export default function MovieCard({ movie, showLink = true }: any) {
       </p>
       {showLink && <Link to={`/movie/${movie.id}`}>Detalhes</Link>}
     </div>
-  )
+  );
 }
