@@ -16,7 +16,7 @@ export default function Movie() {
     
     const [movie, setMovie] = useState<any | null>(null);
    
-    const [videosmovie, setVideosMovie] = useState<any | null>(videosapi);
+    
 
     const getMovie = async (url: any) => {
         const res = await fetch(url)
@@ -33,7 +33,8 @@ export default function Movie() {
         return `${Math.trunc(num / 60)}h ${num % 60}min`;
     }
 
-  
+console.log(videosapi)
+
 
 
     useEffect(() => {
@@ -42,14 +43,18 @@ export default function Movie() {
         getMovie    (movieUrl)
     }, [])
 
-    
+
+ 
+
+
     return (
         <div>
 
-            {movie &&
+            { movie &&
                 <>
-
-                    <MovieCard movie={movie} showLink={false} />
+    <MovieCard movie={movie} showLink={false} />
+                 
+                  
                 
                 
                     <p>{formatCurrency(movie.budget)}</p>
@@ -60,11 +65,15 @@ export default function Movie() {
 
 
                     <p>{minuto(movie.runtime)} minutos</p>
-
-
                     <p>{movie.overview}</p>
 
-             
+                    <p>{   ` filme produzido : ${movie.production_countries[0].name} `}</p>
+
+                 <p>{`disponivel nas linguagens : ${movie.spoken_languages.map((lang: any) => lang.name).join(', ')} `}</p>
+
+
+
+
 
                     
                  
